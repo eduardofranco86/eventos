@@ -35,8 +35,20 @@ class Perfil(models.Model):
     def __str__(self):
         return f'Perfil de {self.usuario.username}'
 
+class Contato(models.Model):
+    nome = models.CharField(max_length=100)
+    email = models.EmailField()
+    mensagem = models.TextField()
+    data_envio = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f'Contato de {self.nome} - {self.email}'
     
 
 #  python manage.py  makemigrations 
 #  python manage.py  migrate 
-    
+#  # 1. Baixa o estado mais recente do servidor sem alterar seus arquivos ainda
+#git fetch origin
+
+# 2. Força a sua branch local a ficar idêntica à branch do servidor (ex: main)
+# git reset --hard origin/main

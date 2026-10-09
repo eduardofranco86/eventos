@@ -22,5 +22,8 @@ from eventosif.views import *
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("", home, name="home"), # Página principal do site
-    path("cadastro/", cadastro, name="cadastro"), # Página de cadastro de usuário
+    path("cadastro/", cadastro, name="cadastro"), 
+    path("contato/", contato, name="contato"),
+    path("sobre/", sobre, name="sobre"),
+    
 ]

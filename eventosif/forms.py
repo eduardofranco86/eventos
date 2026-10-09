@@ -1,5 +1,5 @@
 from django.forms import ModelForm
-from .models import Evento
+from .models import Contato, Evento
 
 # Publicadores de cursos 
 
@@ -14,4 +14,14 @@ class EventoForm(ModelForm):
             "local",
             "categoria",
             "informacoes_adicionais",
+        ]
+
+
+class ContatoForm(ModelForm):
+    class Meta:
+        model = Contato
+        fields = [
+            "nome",
+            "email",
+            "mensagem",
         ]

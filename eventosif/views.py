@@ -1,5 +1,7 @@
 from django.shortcuts import render
 
+from eventosif.forms import ContatoForm
+
 # Create your views here.
 
 
@@ -34,3 +36,17 @@ def cadastro(request):
     # curl "http://127.0.0.1:8000/cadastro/?nome=Maria&idade=50&cidade=São+Paulo"
     
     return HttpResponse("Página de cadastro de usuário")
+
+
+
+def sobre(request):
+    return render(request, "sobre.html")
+
+
+def contato(request):
+    form = ContatoForm(request.POST or None)
+    if request.method == "POST":
+        if form.is_valid():
+            form.save()
+            return render(request, "contato.html", {"success": True})
+    return render(request, "contato.html", {"form": form})

@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}Contato{% endblock %}
+
+{% block content %}
+    <h1>Contato</h1>
+    <p>Se você tiver alguma dúvida, sugestão ou comentário, por favor, preencha o formulário abaixo e entraremos em contato com você o mais breve possível.</p>
+
+    <form method="post" action="{% url 'contato' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Enviar</button>
+    </form>
+{% endblock %}
